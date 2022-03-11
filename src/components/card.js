@@ -6,7 +6,28 @@ const Card = (article) => {
   // The tags used, the hierarchy of elements and their attributes must match the provided markup exactly!
   // The text inside elements will be set using their `textContent` property (NOT `innerText`).
   // Add a listener for click events so that when a user clicks on a card, the headline of the article is logged to the console.
-  //
+  const card = document.createElement('div');
+  const headline = document.createElement('div');
+  const author = document.createElement('div');
+  const imageHolder = document.createElement ('div');
+  const image = document.createElement('img');
+  const authorName = document.createElement('span');
+  card.classList.add('card');
+  headline.classList.add('headline');
+  author.classList.add('author');
+  imageHolder.classList.add('img-container');
+  card.appendChild(headline);
+  card.appendChild(author);
+  author.appendChild(imageHolder);
+  imageHolder.appendChild(image);
+  author.appendChild(authorName);
+  headline.textContent = article.headline;
+  image.src= article.authorPhoto;
+  authorName.textContent = article.authorName;
+
+  card.addEventListener('click', (evt) => {
+    console.log(headline.textContent);
+  })
   // <div class="card">
   //   <div class="headline">{ headline }</div>
   //   <div class="author">
@@ -17,7 +38,11 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+ return card;
+
 }
+
+console.log(Card({headline: 'pootis', authorPhoto: 'www.bleh.jpg', authorName: "aids man"}));
 
 const cardAppender = (selector) => {
   // TASK 6
@@ -28,6 +53,7 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+  ;
 }
 
 export { Card, cardAppender }
