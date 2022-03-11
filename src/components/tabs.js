@@ -6,14 +6,21 @@ const Tabs = (topics) => {
   // then the function returns the markup below.
   // The tags used, the hierarchy of elements and their attributes must match the provided markup!
   // The text inside elements will be set using their `textContent` property (NOT `innerText`).
-  //
+  const topic = document.createElement('div');
+  const tab = document.createElement('div');
+  tab.classList.add('tab');
+  topic.appendChild(tab);
   // <div class="topics">
   //   <div class="tab">javascript</div>
   //   <div class="tab">bootstrap</div>
   //   <div class="tab">technology</div>
   // </div>
   //
+
+
+console.log(topic);
 }
+Tabs(['javascript', 'bootstrap', 'technology'])
 
 const tabsAppender = (selector) => {
   // TASK 4
