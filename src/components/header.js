@@ -37,7 +37,7 @@ const headerAppender = (selector) => {
   //
 
   const appender = document.querySelector(selector);
-  const appendee = Header('Reasons to Hate You', 'March 11, 1450', 56);
+  const appendee = Header('Local Programmer Learns to Code', 'March 11, 1450', 56);
   appender.appendChild(appendee);
 }
 

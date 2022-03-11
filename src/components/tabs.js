@@ -1,3 +1,4 @@
+import axios from 'axios';
 const Tabs = (topics) => {
   // TASK 3
   // ---------------------
@@ -7,9 +8,13 @@ const Tabs = (topics) => {
   // The tags used, the hierarchy of elements and their attributes must match the provided markup!
   // The text inside elements will be set using their `textContent` property (NOT `innerText`).
   const topic = document.createElement('div');
+  topics.forEach((i) => {
   const tab = document.createElement('div');
   tab.classList.add('tab');
   topic.appendChild(tab);
+  tab.textContent = i;
+  });
+  
   // <div class="topics">
   //   <div class="tab">javascript</div>
   //   <div class="tab">bootstrap</div>
@@ -18,9 +23,11 @@ const Tabs = (topics) => {
   //
 
 
-console.log(topic);
+return topic;
 }
-Tabs(['javascript', 'bootstrap', 'technology'])
+
+
+
 
 const tabsAppender = (selector) => {
   // TASK 4
@@ -30,6 +37,15 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
+ const tabHome = document.querySelector(selector);
+ const tabContent = Tabs(['javascript', 'bootstrap', 'technology']);
+ tabHome.appendChild(tabContent);
+  
+  
 }
+
+
+
+
 
 export { Tabs, tabsAppender }
