@@ -9,11 +9,12 @@ const Tabs = (topics) => {
   // The tags used, the hierarchy of elements and their attributes must match the provided markup!
   // The text inside elements will be set using their `textContent` property (NOT `innerText`).
   const topic = document.createElement('div');
-  topics.forEach((i) => {
-  const tab = document.createElement('div');
-  tab.classList.add('tab');
-  topic.appendChild(tab);
-  tab.textContent = i;
+    topic.classList.add('topics')
+    topics.forEach((i) => {
+    const tab = document.createElement('div');
+    tab.classList.add('tab');
+    topic.appendChild(tab);
+    tab.textContent = i;
   });
   
   // <div class="topics">

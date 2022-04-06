@@ -55,17 +55,18 @@ const cardAppender = (selector) => {
   axios.get(`http://localhost:5001/api/articles`) 
 .then(res => {
   const appendPoint = document.querySelector(selector)
-  console.log(res.data.articles)
-  const bootstrapArticles = res.data.articles.bootstrap
-  bootstrapArticles.forEach((item) => {
-    console.log(item)
-    const cardMaker = Card({article: item.article})
-   appendPoint.appendChild(cardMaker)
+    for (const key in res.data.articles) {
+      res.data.articles[key].forEach(elem => {
+        const card = Card(elem);
+        appendPoint.appendChild(card);
+      })
+        
+    }
   })
-
+  // for every key in res.data.articles we want to loop over and pass the values into the card maker
 
 
   
-})
+
 }
 export { Card, cardAppender }
